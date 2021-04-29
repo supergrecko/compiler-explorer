@@ -1,0 +1,1 @@
+fun square(a: Int, b: Int) = a + b

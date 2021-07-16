@@ -81,6 +81,7 @@
     "yaml": "^1.10.2"
   },
   "devDependencies": {
+    "@types/mocha": "^8.2.3",
     "approvals": "^4.0.0-beta.1",
     "aws-sdk-mock": "^5.1.0",
     "chai": "^4.3.4",
@@ -112,6 +113,9 @@
     "sinon": "^11.1.1",
     "supervisor": "^0.12.0",
     "terser-webpack-plugin": "^2.3.8",
+    "ts-mocha": "^8.0.0",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
     "url-loader": "^3.0.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
@@ -121,7 +125,6 @@
   },
   "mocha": {
     "require": [
-      "esm",
       "test/_setup"
     ]
   },
@@ -130,7 +133,7 @@
     "ci-test": "nyc mocha --recursive",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
-    "test": "mocha --recursive",
+    "test": "ts-mocha -p tsconfig.backend.json --recursive test/**.js test/**/*.js",
     "check": "npm run lint && npm run test",
     "dev": "cross-env NODE_ENV=DEV node -r esm app.js",
     "debugger": "cross-env NODE_ENV=DEV node --inspect -r esm app.js --debug",
@@ -138,7 +141,8 @@
     "start": "webpack && cross-env NODE_ENV=LOCAL node -r esm app.js",
     "codecov": "codecov --disable=gcov",
     "sentry": "npx -p @sentry/cli sentry-cli",
-    "update-browserslist": "npx browserslist@latest -- --update-db"
+    "update-browserslist": "npx browserslist@latest -- --update-db",
+    "build-backend": "tsc --project tsconfig.backend.json"
   },
   "license": "BSD-2-Clause"
 }

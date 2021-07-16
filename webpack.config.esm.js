@@ -34,7 +34,6 @@ import TerserPlugin from 'terser-webpack-plugin';
 import webpack from 'webpack';
 import ManifestPlugin from 'webpack-manifest-plugin';
 
-const __dirname = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 const isDev = process.env.NODE_ENV !== 'production';
 
 const distPath = path.resolve(__dirname, 'out', 'dist');

@@ -43,7 +43,7 @@ export const should = chai.should();
 /***
  * Absolute path to the root of the tests
  */
-export const TEST_ROOT = path.resolve(__dirname);
+export const TEST_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)));
 
 export function resolvePathFromTestRoot(...args) {
     return path.resolve(TEST_ROOT, ...args);

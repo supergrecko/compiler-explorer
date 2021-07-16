@@ -125,12 +125,13 @@
   },
   "mocha": {
     "require": [
+      "esm",
       "test/_setup"
     ]
   },
   "scripts": {
     "ci-lint": "eslint --format github .",
-    "ci-test": "nyc mocha --recursive",
+    "ci-test": "nyc ts-mocha -p tsconfig.backend.json mocha --recursive test/**.js/*.js",
     "lint": "eslint .",
     "lint-fix": "eslint --fix .",
     "test": "ts-mocha -p tsconfig.backend.json --recursive test/**.js test/**/*.js",

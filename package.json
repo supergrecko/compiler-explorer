@@ -156,8 +156,8 @@
     "sentry": "npx -p @sentry/cli sentry-cli",
     "update-browserslist": "npx browserslist@latest -- --update-db",
     "prepare": "husky install",
-    "format": "prettier --ignore-unknown",
-    "format-fix": "prettier --write --ignore-unknown"
+    "format": "prettier --check app.js webpack.config.esm.js test/**/*.{ts,js} static/**/*.{ts,js} lib/**/*.{ts,js} --ignore-unknown",
+    "format-fix": "prettier --write app.js webpack.config.esm.js test/**/*.{ts,js} static/**/*.{ts,js} lib/**/*.{ts,js} --ignore-unknown"
   },
   "lint-staged": {
     "*.{js}": [
